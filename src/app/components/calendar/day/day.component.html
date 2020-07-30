@@ -1,0 +1,22 @@
+<div class="day-container"
+    [class.weekend]="isWeekend(index)"
+    [class.grayed]="!dayData.inCurrentMonth"
+    [class.today]="isToday(dayData.fullDate)"
+    (click)="openDay()">
+    <span class="date">
+        {{ dayData.date }}
+    </span>
+    <div class="events-container" *ngIf="dayData.events.length">
+        <div class="event-indicator"
+            title="You have {{dayData.events.length}} events today">
+            {{ dayData.events.length }}
+        </div>
+        <div class="event-titles">
+            <span class="event-summerized"
+                *ngFor="let event of dayData.events"
+                title="{{event.title}}">
+                {{ event.startDate.getHours() }}:{{ getFormattedMinutes(event.startDate.getMinutes()) }} - {{ event.title }}
+            </span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+.day-container {
+    display: flex;
+    height: 120px;
+    width: 120px;
+    border: 1px solid #e1e1e1;
+    position: relative;
+    overflow: scroll;
+
+    &:hover {
+        background-color: #e1e1e1;
+    }
+
+    &.weekend {
+        color: #8b0000;
+    }
+
+    &.grayed { 
+        opacity: 0.5;
+    }
+
+    &.today {
+        background-color: rgb(195, 235, 195);
+        font-size: 22px;
+    }
+
+    .date {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+
+    .events-container {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .event-indicator {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            height: 18px;
+            width: 18px;
+            background-color: #8b0000;
+            border-radius: 50%;
+            font-size: 14px;
+            line-height: 18px;
+            font-weight: 600;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+        }
+
+        .event-titles {
+            margin-top: 23px;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            font-size: 12px;
+            
+            .event-summerized {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+    }
+}

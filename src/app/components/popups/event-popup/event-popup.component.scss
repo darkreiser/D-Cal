@@ -1,0 +1,24 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    max-height: 65vh;
+
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .error {
+        color: red;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+}

@@ -1,0 +1,19 @@
+.calendar-grid-container {
+    .month-title {
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 0px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
+    .calendar-grid {
+        border-spacing: 0;
+        margin: 30px auto;
+
+        .calendar-body {
+            border: 1px solid #e1e1e1;
+        }
+    }
+}
+

@@ -1,0 +1,9 @@
+<div class="calendar-container">
+    <div class="months-navigator">
+        <button class="nav-button" (click)="changeMonth('prev')"><< Prev</button>
+        <button class="nav-button" (click)="changeMonth('today')">Today</button>
+        <button class="nav-button" (click)="changeMonth('next')">Next >></button>
+    </div>
+    
+    <calendar-grid [shownDate]="dateShown"></calendar-grid>
+</div>

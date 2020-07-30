@@ -1,0 +1,20 @@
+<div class="calendar-grid-container">
+    <p class="month-title">{{ monthNames[shownDate.month] }} {{ shownDate.year }}</p>
+    <table class="calendar-grid">
+        <thead class="calendar-header">
+            <tr>
+                <th *ngFor="let day of [0,1,2,3,4,5,6]">
+                    {{ weekDays[day] }}
+                </th>
+            </tr>
+        </thead>
+  
+        <tbody class="calendar-body">
+            <tr *ngFor="let week of monthData.weeks" class="week">
+                <td *ngFor="let day of week.days; let i = index">
+                    <day [dayData]="day" [index]="i"></day>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

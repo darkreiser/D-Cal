@@ -1,0 +1,38 @@
+<div mat-dialog-title class="header">
+    Events for {{ dayData.dayName }} - {{ dayData.fullDate.getDate() }}.{{ dayData.fullDate.getMonth()+1 }}
+</div>
+<div mat-dialog-content class="body">
+    <div class="events-container">
+        <div *ngFor="let event of dayData.events" class="event" >
+            <div class="event-data">
+                <div>
+                    <span class="label">{{ event.startDate.getHours() }}:{{ getFormattedMinutes(event.startDate.getMinutes()) }}-{{ event.endDate.getHours() }}:{{ getFormattedMinutes(event.endDate.getMinutes()) }}:&nbsp;</span>
+                    <span class="text">{{ event.title }}</span>
+                </div>
+                <div class="data-row">
+                    <span class="label">Details:&nbsp;</span>
+                    <span class="text">{{ event.description }}</span>
+                </div>
+                <div class="data-row">
+                    <span class="label">Where:&nbsp;</span>
+                    <span class="text">{{ event.location }}</span>
+                </div>
+                <div class="data-row">
+                    <span class="label">With:&nbsp;</span>
+                    <span class="text" *ngFor="let participant of event.participants">
+                        {{ participant.email }};
+                    </span>
+                </div>
+            </div>
+            <button mat-icon-button (click)="openEvent(event)">
+                <mat-icon>edit</mat-icon>
+            </button>
+        </div>
+        <div *ngIf="!dayData.events.length">
+            Nothing on the agenda...
+        </div>
+    </div>
+</div>
+<div mat-dialog-actions class="footer">
+    <button mat-button (click)="dialogRef.close()">Close</button>
+</div>

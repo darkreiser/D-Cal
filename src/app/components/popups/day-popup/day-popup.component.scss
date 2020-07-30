@@ -1,0 +1,32 @@
+.body {
+    .events-container {
+        .event {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            margin-bottom: 20px;
+
+            .event-data {
+                display: flex;
+                flex-direction: column;
+
+                .data-row {
+                    width: 100%;
+                }
+                .text {
+                    color: lightslategrey;
+                }
+
+                .row {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: flex-end;
+}

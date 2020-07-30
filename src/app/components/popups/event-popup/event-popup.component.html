@@ -1,0 +1,67 @@
+<div mat-dialog-title class="header">
+    <span>
+        {{ isEditMode ? 'Edit Event' : 'Add Event'}}
+    </span>
+    <button mat-icon-button
+            *ngIf="isEditMode"
+            (click)="deleteEvent()">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content class="body">
+    <form [formGroup]="eventForm" class="popup-form-container">
+        <mat-form-field>
+            <mat-label>Title</mat-label>
+            <input matInput formControlName="title">
+            <mat-error *ngIf="formControls.title.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Location</mat-label>
+            <input matInput formControlName="location">
+            <mat-error *ngIf="formControls.location.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+            <mat-error *ngIf="formControls.description.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="startPicker" placeholder="Choose a start date" formControlName="startDate">
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #startPicker [enableMeridian]="true">
+            </ngx-mat-datetime-picker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="endPicker" placeholder="Choose an End date" formControlName="endDate">
+            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #endPicker [enableMeridian]="true">
+            </ngx-mat-datetime-picker>
+        </mat-form-field>
+
+        <div formArrayName="participants"
+            *ngFor="let participant of eventForm.get('participants')['controls']; let i = index;">
+            <ng-container [formGroupName]="i">
+                <mat-form-field>
+                    <mat-label>Participant</mat-label>
+                    <input matInput formControlName="email" placeholder="Enter email">
+                </mat-form-field>
+                <button mat-icon-button *ngIf="i>0" (click)="removeParticipant(i)">
+            <mat-icon>delete</mat-icon>
+        </button>
+            </ng-container>
+        </div>
+        <button mat-button (click)="addParticipant()">Add Participants</button>
+
+    
+
+    </form>
+    <span class="error" *ngIf="errorMessage">*{{ errorMessage }}</span>
+</div>
+<div mat-dialog-actions class="footer">
+    <button mat-button (click)="dialogRef.close()">Cancel</button>
+    <button mat-button [disabled]="!eventForm.valid" (click)="addEvent()">{{ isEditMode ? 'Edit' : 'Add'}}</button>
+</div>
