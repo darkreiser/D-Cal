@@ -54,6 +54,7 @@ export class CalendarGridComponent implements OnInit ,OnChanges {
 
     for(let weekIndex = 0 ; weekIndex < weeksNumber; weekIndex++) {
       let nextMonthCounter = 1;
+      let nextMonthDayCounter = 1;
       
       for(let dayIndex = 0 ; dayIndex < 7; dayIndex++) {
         let day: DayData = null;
@@ -66,8 +67,9 @@ export class CalendarGridComponent implements OnInit ,OnChanges {
         if (isDayFromPrevMonth) {
           day = this.calendarService.getDayFromPrevMonth(dayIndex, this.monthData.offset, lastMonthLength, this.shownDate)
         } else if (isDayFromNextMonth) {
-          day = this.calendarService.getDayFromNextMonth(nextMonthCounter, dayIndex, this.monthData.offset, this.shownDate)
+          day = this.calendarService.getDayFromNextMonth(nextMonthCounter, nextMonthDayCounter, this.monthData.offset, this.shownDate)
           nextMonthCounter++;
+          nextMonthDayCounter++;
         } else {
           day = {
             fullDate: newDate,
