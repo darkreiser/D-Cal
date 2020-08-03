@@ -1,10 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DayData, EventObj } from 'src/app/utils/utils';
+import { MatDialog } from '@angular/material/dialog';
+
+import { DayData } from 'src/app/utils/utils';
+
 import { DateService } from 'src/app/services/date.service';
 import { EventService } from 'src/app/services/event.service';
 
-import { EventPopupComponent } from '../../popups/event-popup/event-popup.component'
-import { MatDialog } from '@angular/material/dialog';
 import { DayPopupComponent } from '../../popups/day-popup/day-popup.component';
 
 @Component({
