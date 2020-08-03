@@ -42,8 +42,7 @@ export class CalendarService {
   }
 
   getDayFromNextMonth(counter: number, dayNum: number, offset: number, shownDate: DateObject): DayData {
-    const dayDate = dayNum;
-    const newDate = new Date(shownDate.year, shownDate.month+1, dayDate);
+    const newDate = new Date(shownDate.year, shownDate.month+1, dayNum);
     let day: DayData = {
       fullDate: newDate,
       dayName: WeekDays[dayNum],
