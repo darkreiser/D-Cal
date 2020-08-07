@@ -47,20 +47,20 @@ export class MockEventsUtils {
             id: 'id_5',
             startDate: new Date(2020, 6, 22, 15, 30, 0, 0),
             endDate: new Date(2020, 6, 22, 16, 0, 0, 0),
-            title: 'Transmit job interview',
+            title: 'Job interview',
             location: 'Zoom, - corona times',
             description: 'job interview with Adi',
-            participants: [{email: 'darkreiser86@gmail.com'}, {email: 'adi@transmitsecurity.com'}]
+            participants: [{email: 'darkreiser86@gmail.com'}, {email: 'adi@gmail.com'}]
         },
         {
             id: 'id_6',
             startDate: new Date(2020, 6, 23, 15, 30, 0, 0),
             endDate: new Date(2020, 6, 23, 17, 0, 0, 0),
-            title: 'Transmit job interview 2nd meeting',
+            title: 'Job interview 2nd meeting',
             location: 'Zoom, - corona times',
-            description: 'job interview with Dan',
+            description: 'job interview with big boss',
             participants: [
-                {email: 'darkreiser86@gmail.com'}, {email: 'danc@transmitsecurity.com'}
+                {email: 'darkreiser86@gmail.com'}, {email: 'bigboss@gmail.com'}
             ]
         },
         {
@@ -97,7 +97,7 @@ export class MockEventsUtils {
             title: 'Prof. Yoram Yovel',
             location: 'Menora Mivtahim center, Tel Aviv',
             description: 'lecture name: what is happiness?',
-            participants: [{email: 'darkreiser86@gmail.com'}, {email: 'adi@transmitsecurity.com'}]
+            participants: [{email: 'darkreiser86@gmail.com'}, {email: 'yuval@gmail.com'}]
         },
     ];
 }
