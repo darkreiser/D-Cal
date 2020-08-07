@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { DayData } from 'src/app/utils/utils';
@@ -21,16 +21,21 @@ export class DayComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private dateService: DateService,
-    private eventService: EventService) { }
+    private eventService: EventService,
+    private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
 
   openDay() {
-    this.dialog.open(DayPopupComponent, {
+    const dialogRef = this.dialog.open(DayPopupComponent, {
       width: '450px',
       data: this.dayData
     });
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.changeDetectorRef.detectChanges();
+    })
   }
 
   isWeekend(day: number): boolean {

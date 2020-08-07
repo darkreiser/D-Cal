@@ -53,5 +53,4 @@ export class DayPopupComponent implements OnInit {
   getFormattedMinutes(minutes: number): string {
     return this.dateService.getFormattedMinutes(minutes)
   }
-
 }
