@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnChanges, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DateObject, WeekDays, MonthNames } from '../../utils/utils'
 import { DateService } from 'src/app/services/date.service';
 

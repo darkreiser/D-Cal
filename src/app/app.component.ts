@@ -10,14 +10,14 @@ import { EventPopupComponent } from './components/popups/event-popup/event-popup
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'transmit-security';
+  title = 'D-Cal';
 
   constructor(
     public dialog: MatDialog
   ) { }
 
   addEvent(): void {
-    const dialogRef = this.dialog.open(EventPopupComponent, {
+    this.dialog.open(EventPopupComponent, {
       width: '450px',
       data: {}
     });

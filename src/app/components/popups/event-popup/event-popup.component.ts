@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormBuilder, FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import {DateAdapter, MAT_DATE_LOCALE, NativeDateAdapter} from '@angular/material/core';
 import { Platform } from '@angular/cdk/platform';
+
 import { EventService } from 'src/app/services/event.service';
 import { UtilsService, EventObj, Participant } from 'src/app/utils/utils';
 

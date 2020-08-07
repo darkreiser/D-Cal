@@ -1,10 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
-import { DayData, EventObj } from 'src/app/utils/utils';
-import { DateService } from 'src/app/services/date.service';
-import { EventPopupComponent } from '../event-popup/event-popup.component';
-import { EventService } from 'src/app/services/event.service';
 
+import { DateService } from 'src/app/services/date.service';
+
+import { DayData, EventObj } from 'src/app/utils/utils';
+
+import { EventPopupComponent } from '../event-popup/event-popup.component';
 
 @Component({
   selector: 'app-day-popup',
@@ -18,7 +19,6 @@ export class DayPopupComponent implements OnInit {
     public dialogRef: MatDialogRef<DayPopupComponent>,
     public dialog: MatDialog,
     private dateService: DateService,
-    private eventService: EventService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
@@ -53,5 +53,4 @@ export class DayPopupComponent implements OnInit {
   getFormattedMinutes(minutes: number): string {
     return this.dateService.getFormattedMinutes(minutes)
   }
-
 }
