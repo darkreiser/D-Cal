@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EventObj } from '../utils/utils';
+import { EventObj, MonthData } from '../utils/utils';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { MockEventsUtils } from '../utils/mockEventsUtils'
 
@@ -24,15 +24,15 @@ export class EventService {
     this.updateEvents(newEvents);
   }
 
-  removeEvent(eventId: string): void {
-    const newEvents = this.eventsSource.value.filter((e: EventObj) => e.id !== eventId);
-    this.updateEvents(newEvents);
-  }
-
   editEvent(eventId: string, event: EventObj) {
     event['id'] = eventId;
     const filteredEvents = this.eventsSource.value.filter((e: EventObj) => e.id !== eventId);
     const newEvents = [...filteredEvents, event];
+    this.updateEvents(newEvents);
+  }
+
+  removeEvent(eventId: string): void {
+    const newEvents = this.eventsSource.value.filter((e: EventObj) => e.id !== eventId);
     this.updateEvents(newEvents);
   }
 

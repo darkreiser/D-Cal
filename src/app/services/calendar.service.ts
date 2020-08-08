@@ -7,7 +7,6 @@ import { EventService } from './event.service';
 })
 export class CalendarService {
 
-  
   constructor(
     private eventService: EventService
   ) { }

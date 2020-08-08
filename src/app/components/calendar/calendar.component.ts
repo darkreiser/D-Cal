@@ -25,5 +25,4 @@ export class CalendarComponent implements OnInit {
     const currentDate = this.dateShown.date;
     this.dateShown = this.dateService.getDifferentMonth(direction, currentDate);
   }
-
 }

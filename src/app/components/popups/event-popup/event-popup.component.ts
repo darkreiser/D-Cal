@@ -34,7 +34,6 @@ export class EventPopupComponent implements OnInit {
     this.isEditMode = !this.utils.isObjectEmpty(this.data);
 
     this.initFormValues();
-
   }
 
   initFormValues(): void {
@@ -59,7 +58,6 @@ export class EventPopupComponent implements OnInit {
 
   get formControls() { return this.eventForm.controls; }
 
-
   initParticipants(participants: Participant[]): void {
     let participantsControl = <FormArray>this.eventForm.controls.participants;
     if (participants.length > 0) {
@@ -70,6 +68,7 @@ export class EventPopupComponent implements OnInit {
       participantsControl.push(this.createParticipantController());
     }
   }
+
   createParticipantController(): FormGroup {
     return this.fb.group({
       email: ['', [Validators.required, Validators.email]]
@@ -94,8 +93,16 @@ export class EventPopupComponent implements OnInit {
     return date
   }
 
+  validateFormData(): string {
+    if (this.formControls.startDate.value > this.formControls.endDate.value) {
+      return 'Start date cannot be later than end date';
+    } else {
+      return 'valid';
+    }
+  }
+
   addEvent(){
-    if(this.eventForm.invalid || this.validateFormData()){
+    if(this.eventForm.invalid || this.validateFormData() !== 'valid'){
       this.errorMessage = this.validateFormData();
     } else {
 
@@ -103,21 +110,9 @@ export class EventPopupComponent implements OnInit {
         this.eventService.editEvent(this.data.id, this.eventForm.value);
         this.closePopup('edit', this.eventForm.value);
       } else {
-        if (this.eventService.isLessThan5EventsToday(this.eventForm.get('startDate').value)) {
-          this.eventService.addEvent(this.eventForm.value);
-          this.closePopup('add', this.eventForm.value);
-        } else {
-          this.errorMessage = 'Cannot set more than 5 events per day';
-        }
+        this.eventService.addEvent(this.eventForm.value);
+        this.closePopup('add', this.eventForm.value);
       }
-    }
-  }
-
-  validateFormData() {
-    if (this.formControls.startDate.value > this.formControls.endDate.value) {
-      return 'start Date cannot be later than end date';
-    } else {
-      return null;
     }
   }
 
